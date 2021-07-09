@@ -1,4 +1,4 @@
-package com.dilhani.fastnews;
+package com.dilhani.todaynews;
 
 import org.junit.Test;
 
