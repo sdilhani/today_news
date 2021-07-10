@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.FastNews" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.FastNews" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
         <!-- Primary brand color. -->
         <item name="colorPrimary">#025988</item>
         <item name="colorPrimaryVariant">#025988</item>

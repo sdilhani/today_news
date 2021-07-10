@@ -1,4 +1,4 @@
-package com.dilhani.todaynews.fragments;
+package com.dilhani.todaynews.ui.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

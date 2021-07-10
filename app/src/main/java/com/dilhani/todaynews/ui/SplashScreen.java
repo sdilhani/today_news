@@ -8,7 +8,7 @@ import android.os.Handler;
 
 import com.dilhani.todaynews.R;
 
-public class SplashScreen extends AppCompatActivity {
+public class SplashScreen extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

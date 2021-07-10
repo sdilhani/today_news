@@ -1,16 +1,125 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragments.AllNewsFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Categories"
-        android:textColor="#020202" />
+        tools:context=".ui.fragments.AllNewsFragment">
 
-</FrameLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </LinearLayout>
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#E7EFF4"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp">
+
+                    <Button
+                        android:id="@+id/btn_general"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_margin="4dp"
+                        android:layout_weight="1"
+                        android:paddingHorizontal="16dp"
+                        android:text="General"
+                        android:background="@drawable/category_button"
+                        android:textColor="@color/category_button_text" />
+
+                    <Button
+                        android:id="@+id/btn_entertain"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_margin="4dp"
+                        android:layout_weight="1"
+                        android:paddingHorizontal="16dp"
+                        android:text="Business"
+                        android:background="@drawable/category_button"
+                        android:textColor="@color/category_button_text"/>
+
+                    <Button
+                        android:id="@+id/btn_health"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_margin="4dp"
+                        android:layout_weight="1"
+                        android:paddingHorizontal="16dp"
+                        android:text="Health"
+                        android:background="@drawable/category_button"
+                        android:textColor="@color/category_button_text" />
+
+                    <Button
+                        android:id="@+id/btn_ent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_margin="4dp"
+                        android:layout_weight="1"
+                        android:paddingHorizontal="16dp"
+                        android:text="Entertainment"
+                        android:background="@drawable/category_button"
+                        android:textColor="@color/category_button_text" />
+
+                    <Button
+                        android:id="@+id/btn_tech"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_margin="4dp"
+                        android:layout_weight="1"
+                        android:paddingHorizontal="16dp"
+                        android:text="Technology"
+                        android:background="@drawable/category_button"
+                        android:textColor="@color/category_button_text" />
+
+                    <Button
+                        android:id="@+id/btn_science"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_margin="4dp"
+                        android:layout_weight="1"
+                        android:paddingHorizontal="16dp"
+                        android:text="Sceince"
+                        android:background="@drawable/category_button"
+                        android:textColor="@color/category_button_text"/>
+
+                    <Button
+                        android:id="@+id/btn_sports"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_margin="4dp"
+                        android:layout_weight="1"
+                        android:paddingHorizontal="16dp"
+                        android:text="Sports"
+                        android:background="@drawable/category_button"
+                        android:textColor="@color/category_button_text"/>
+                </LinearLayout>
+            </HorizontalScrollView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</layout>

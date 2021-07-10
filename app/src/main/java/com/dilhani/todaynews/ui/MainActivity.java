@@ -1,31 +1,18 @@
 package com.dilhani.todaynews.ui;
 
+import com.dilhani.todaynews.ui.fragments.*;
 import android.os.Bundle;
-import android.view.View;
-import android.view.ViewGroup;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.viewpager.widget.PagerAdapter;
-import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.dilhani.todaynews.R;
 import com.dilhani.todaynews.databinding.ActivityMainBinding;
-import com.dilhani.todaynews.fragments.AllNewsFragment;
-import com.dilhani.todaynews.fragments.CategoriesFragment;
-import com.dilhani.todaynews.fragments.FragmentAdapter;
-import com.dilhani.todaynews.fragments.SearchFragment;
-import com.dilhani.todaynews.fragments.SourcesFragment;
 import com.google.android.material.tabs.TabLayout;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     ActivityMainBinding binding;
     FragmentAdapter adapter;
