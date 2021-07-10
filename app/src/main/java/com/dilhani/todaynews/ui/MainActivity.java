@@ -1,7 +1,12 @@
 package com.dilhani.todaynews.ui;
 
 import com.dilhani.todaynews.ui.fragments.*;
+
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -11,6 +16,8 @@ import androidx.viewpager2.widget.ViewPager2;
 import com.dilhani.todaynews.R;
 import com.dilhani.todaynews.databinding.ActivityMainBinding;
 import com.google.android.material.tabs.TabLayout;
+
+import java.util.Objects;
 
 public class MainActivity extends BaseActivity {
 
@@ -24,16 +31,23 @@ public class MainActivity extends BaseActivity {
         init();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.header_menu, menu);
+        return true;
+    }
+
     private void init(){
 
         setSupportActionBar(binding.toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(false);
 
         FragmentManager fm = getSupportFragmentManager();
         adapter = new FragmentAdapter(fm,getLifecycle());
         binding.viewpager.setAdapter(adapter);
 
-        binding.tabs.addTab(binding.tabs.newTab().setText("ALL")/*.setIcon(R.drawable.ic_all)*/);
+        binding.tabs.addTab(binding.tabs.newTab().setText("TOP")/*.setIcon(R.drawable.ic_all)*/);
         binding.tabs.addTab(binding.tabs.newTab().setText("SEARCH")/*.setIcon(R.drawable.ic_search)*/);
         binding.tabs.addTab(binding.tabs.newTab().setText("TOPICS")/*.setIcon(R.drawable.ic_topics)*/);
         binding.tabs.addTab(binding.tabs.newTab().setText("SOURCES")/*.setIcon(R.drawable.ic_sources)*/);
@@ -63,6 +77,23 @@ public class MainActivity extends BaseActivity {
                 binding.tabs.selectTab(binding.tabs.getTabAt(position));
             }
         });
+    }
 
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.settings) {
+            Intent settingsIntent = new Intent(this, SettingsActivity.class);
+            startActivity(settingsIntent);
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -85,26 +85,4 @@ public abstract class BaseFragment extends Fragment {
             ex.printStackTrace();
         }
     }
-
-    public void showLoader(String message) {
-        try {
-            progressDialog = new ProgressDialog(getContext());
-            progressDialog.setMessage(message);
-            progressDialog.setCanceledOnTouchOutside(false);
-            progressDialog.setCancelable(false);
-            progressDialog.show();
-
-        } catch (
-                Exception ex) {
-            ex.printStackTrace();
-        }
-    }
-
-    public void hideLoader(){
-        try {
-            progressDialog.hide();
-        }catch (Exception exception){
-            exception.printStackTrace();
-        }
-    }
 }

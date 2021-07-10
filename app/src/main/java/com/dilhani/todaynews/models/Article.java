@@ -1,9 +1,5 @@
 package com.dilhani.todaynews.models;
 
-/*
-** Main Article POJO class which helps the Data adapter class to bind the responses to the views.
-**/
-
 public class Article {
     private String author;
     private String title;
@@ -11,9 +7,18 @@ public class Article {
     private String url;
     private String urlToImage;
     private String publishedAt;
+    private Source source;
 
     public Article(){
 
+    }
+
+    public Source getSource() {
+        return source;
+    }
+
+    public void setSource(Source source) {
+        this.source = source;
     }
 
     public String getAuthor(){

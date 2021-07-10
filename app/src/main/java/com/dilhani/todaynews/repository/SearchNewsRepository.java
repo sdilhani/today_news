@@ -1,6 +1,7 @@
 package com.dilhani.todaynews.repository;
 
 import android.content.Context;
+
 import com.dilhani.todaynews.models.NewsResponse;
 import com.dilhani.todaynews.network.ApiClient;
 import com.dilhani.todaynews.network.ApiInterface;
@@ -8,17 +9,17 @@ import com.dilhani.todaynews.utils.ApplicationConstants;
 
 import io.reactivex.rxjava3.core.Single;
 
-public class AllNewsRepository {
+public class SearchNewsRepository {
 
     private ApiInterface apiInterface;
     private Context context;
 
-    public AllNewsRepository(Context context) {
+    public SearchNewsRepository(Context context) {
         apiInterface = ApiClient.getClient(context).create(ApiInterface.class);
         this.context = context;
     }
 
-    public Single<NewsResponse> getNewByCategory(String category, String country){
-        return apiInterface.getNewsByCategory(category, country,  ApplicationConstants.NEWS_API_KEY);
+    public Single<NewsResponse> searchNews(String query, String language){
+        return apiInterface.getSearchResults(query, "relevancy", "100", language, ApplicationConstants.NEWS_API_KEY);
     }
 }

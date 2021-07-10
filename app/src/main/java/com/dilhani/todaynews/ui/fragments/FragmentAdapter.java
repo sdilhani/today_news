@@ -25,6 +25,8 @@ public class FragmentAdapter extends FragmentStateAdapter {
         return  new AllNewsFragment();
     }
 
+
+
     @Override
     public int getItemCount() {
         return 4;

@@ -1,11 +1,7 @@
 package com.dilhani.todaynews.models;
 
-
 import java.util.List;
 
-/*
-** POJO class to get the list of Articles.
-**/
 public class ArticleResponse {
     private String status;
     private String source;

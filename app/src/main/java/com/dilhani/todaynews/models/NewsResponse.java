@@ -2,14 +2,10 @@ package com.dilhani.todaynews.models;
 
 import java.util.ArrayList;
 
-/**
- * Created by debajyotibasak on 17/12/17.
- */
-
 public class NewsResponse {
     private String status;
     private int totalResults;
-    private ArrayList<ArticleStructure> articles;
+    private ArrayList<Article> articles;
 
     public String getStatus() {
         return status;
@@ -27,11 +23,11 @@ public class NewsResponse {
         this.totalResults = totalResults;
     }
 
-    public ArrayList<ArticleStructure> getArticles() {
+    public ArrayList<Article> getArticles() {
         return articles;
     }
 
-    public void setArticles(ArrayList<ArticleStructure> articles) {
+    public void setArticles(ArrayList<Article> articles) {
         this.articles = articles;
     }
 }
