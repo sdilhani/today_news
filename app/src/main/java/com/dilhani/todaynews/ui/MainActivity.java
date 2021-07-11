@@ -49,7 +49,6 @@ public class MainActivity extends BaseActivity {
 
         binding.tabs.addTab(binding.tabs.newTab().setText("TOP")/*.setIcon(R.drawable.ic_all)*/);
         binding.tabs.addTab(binding.tabs.newTab().setText("SEARCH")/*.setIcon(R.drawable.ic_search)*/);
-        binding.tabs.addTab(binding.tabs.newTab().setText("TOPICS")/*.setIcon(R.drawable.ic_topics)*/);
         binding.tabs.addTab(binding.tabs.newTab().setText("SOURCES")/*.setIcon(R.drawable.ic_sources)*/);
 
         binding.tabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {

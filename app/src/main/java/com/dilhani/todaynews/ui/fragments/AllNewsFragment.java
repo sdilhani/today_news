@@ -1,6 +1,7 @@
 package com.dilhani.todaynews.ui.fragments;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,6 +17,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import com.dilhani.todaynews.R;
 import com.dilhani.todaynews.adapter.NewsAdapter;
 import com.dilhani.todaynews.databinding.FragmentAllNewsBinding;
+import com.dilhani.todaynews.ui.NewsSingle;
 import com.dilhani.todaynews.utils.ApplicationConstants;
 import com.dilhani.todaynews.viewModel.AllNewsViewModel;
 
@@ -63,7 +65,9 @@ public class AllNewsFragment extends BaseFragment {
         setupListeners();
 
         newsAdapter = new NewsAdapter(allNewsViewModel.articlesList, article -> {
-
+            Intent intent = new Intent(requireContext(), NewsSingle.class);
+            intent.putExtra("article", article);
+            startActivity(intent);
         });
 
         GridLayoutManager layoutManager = new GridLayoutManager(getContext(),2);

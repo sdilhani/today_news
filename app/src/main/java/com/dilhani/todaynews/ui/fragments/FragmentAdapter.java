@@ -18,17 +18,13 @@ public class FragmentAdapter extends FragmentStateAdapter {
             case 1 :
                 return  new SearchFragment();
             case 2 :
-                return  new CategoriesFragment();
-            case 3 :
                 return  new SourcesFragment();
         }
         return  new AllNewsFragment();
     }
 
-
-
     @Override
     public int getItemCount() {
-        return 4;
+        return 3;
     }
 }

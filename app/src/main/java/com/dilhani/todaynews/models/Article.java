@@ -1,16 +1,27 @@
 package com.dilhani.todaynews.models;
 
-public class Article {
+import java.io.Serializable;
+
+public class Article implements Serializable {
     private String author;
     private String title;
     private String description;
     private String url;
     private String urlToImage;
     private String publishedAt;
+    private String content;
     private Source source;
 
     public Article(){
 
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 
     public Source getSource() {
