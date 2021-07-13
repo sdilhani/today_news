@@ -1,4 +1,4 @@
-package com.dilhani.fastnews;
+package com.dilhani.todaynews;
 
 import android.content.Context;
 
