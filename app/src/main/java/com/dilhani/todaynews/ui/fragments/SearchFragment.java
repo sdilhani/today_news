@@ -1,6 +1,7 @@
 package com.dilhani.todaynews.ui.fragments;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -8,15 +9,14 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.databinding.DataBindingUtil;
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import com.dilhani.todaynews.R;
 import com.dilhani.todaynews.adapter.NewsAdapter;
 import com.dilhani.todaynews.databinding.FragmentSearchBinding;
+import com.dilhani.todaynews.ui.NewsSingle;
 import com.dilhani.todaynews.utils.ApplicationConstants;
-import com.dilhani.todaynews.viewModel.AllNewsViewModel;
 import com.dilhani.todaynews.viewModel.SearchNewsViewModel;
 
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
@@ -55,7 +55,9 @@ public class SearchFragment extends BaseFragment {
         language = getSharedPreferences().getString(ApplicationConstants.LANGUAGE,"en");
 
         newsAdapter = new NewsAdapter(searchNewsViewModel.articlesList, article -> {
-
+            Intent intent = new Intent(requireContext(), NewsSingle.class);
+            intent.putExtra("article", article);
+            startActivity(intent);
         });
 
         GridLayoutManager layoutManager = new GridLayoutManager(getContext(),2);

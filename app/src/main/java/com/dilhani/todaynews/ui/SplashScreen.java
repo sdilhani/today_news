@@ -1,7 +1,5 @@
 package com.dilhani.todaynews.ui;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -15,7 +13,7 @@ public class SplashScreen extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
-        final int SPLASH_DISPLAY_LENGTH = 1500;
+        final int SPLASH_DISPLAY_LENGTH = 3500;
 
         new Handler().postDelayed(() -> {
                 Intent mainIntent = new Intent(SplashScreen.this, MainActivity.class);

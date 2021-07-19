@@ -3,7 +3,7 @@ package com.dilhani.todaynews.utils;
 public class ApplicationConstants {
 
     public static final String BASE_URL = "https://newsapi.org/v2/";
-    public static final String NEWS_API_KEY = "e8f9866d52ca45b2ae0e89c5ba706580";
+    public static final String NEWS_API_KEY = "9e92b7325b62487f8c80e77f822d14b1";
 
     public static final String NEWS_CATEGORY_GENERAL = "general";
     public static final String NEWS_CATEGORY_BUSINESS = "business";
