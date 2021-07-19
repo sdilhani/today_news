@@ -18,10 +18,10 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class SearchNewsViewModel extends AndroidViewModel {
 
-    private SearchNewsRepository searchRepository;
     public NewsResponse newsResponse;
     public List<Article> articlesList = new ArrayList<Article>();
     public CompositeDisposable compositeDisposable;
+    private SearchNewsRepository searchRepository;
 
     public SearchNewsViewModel(@NonNull Application application) {
         super(application);
@@ -45,7 +45,7 @@ public class SearchNewsViewModel extends AndroidViewModel {
         });
     }
 
-    public void disposeAll(){
+    public void disposeAll() {
         compositeDisposable.dispose();
     }
 }

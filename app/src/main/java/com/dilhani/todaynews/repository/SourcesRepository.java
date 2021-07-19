@@ -17,7 +17,7 @@ public class SourcesRepository {
         apiInterface = ApiClient.getClient(context).create(ApiInterface.class);
     }
 
-    public Single<SourceResponse> getResources(){
+    public Single<SourceResponse> getResources() {
         return apiInterface.getSources(ApplicationConstants.NEWS_API_KEY);
     }
 }

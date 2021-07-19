@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import androidx.databinding.DataBindingUtil;
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 
@@ -24,7 +23,6 @@ import com.dilhani.todaynews.viewModel.AllNewsViewModel;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 import io.reactivex.rxjava3.disposables.CompositeDisposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
@@ -33,16 +31,17 @@ import static android.content.ContentValues.TAG;
 
 public class AllNewsFragment extends BaseFragment {
 
+    private final ArrayList<Button> categoryButtons = new ArrayList<>();
     private CompositeDisposable compositeDisposable;
     private AllNewsViewModel allNewsViewModel;
     private FragmentAllNewsBinding binding;
-    private final ArrayList<Button> categoryButtons = new ArrayList<>();
     private String category = ApplicationConstants.NEWS_CATEGORY_GENERAL;
     private NewsAdapter newsAdapter;
     private ProgressDialog progressDialog;
     private String country;
 
-    public AllNewsFragment() { }
+    public AllNewsFragment() {
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -52,8 +51,8 @@ public class AllNewsFragment extends BaseFragment {
     @Override
     public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_all_news,container, false);
-        return  binding.getRoot();
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_all_news, container, false);
+        return binding.getRoot();
     }
 
     @Override
@@ -61,7 +60,7 @@ public class AllNewsFragment extends BaseFragment {
         compositeDisposable = new CompositeDisposable();
         allNewsViewModel = new ViewModelProvider(this).get(AllNewsViewModel.class);
 
-        country = getSharedPreferences().getString(ApplicationConstants.COUNTRY,"us");
+        country = getSharedPreferences().getString(ApplicationConstants.COUNTRY, "us");
         setupListeners();
 
         newsAdapter = new NewsAdapter(allNewsViewModel.articlesList, article -> {
@@ -70,7 +69,7 @@ public class AllNewsFragment extends BaseFragment {
             startActivity(intent);
         });
 
-        GridLayoutManager layoutManager = new GridLayoutManager(getContext(),2);
+        GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 2);
         binding.newsRecycler.setLayoutManager(layoutManager);
         binding.newsRecycler.setAdapter(newsAdapter);
         //getAllNewsByCategory();
@@ -80,7 +79,7 @@ public class AllNewsFragment extends BaseFragment {
         super.onStart();
     }
 
-    private void setupListeners(){
+    private void setupListeners() {
 
         categoryButtons.add(binding.btnGeneral);
         categoryButtons.add(binding.btnBusiness);
@@ -126,7 +125,7 @@ public class AllNewsFragment extends BaseFragment {
         });
     }
 
-    private void setButtonState(Button button){
+    private void setButtonState(Button button) {
         for (Button categoryButton : categoryButtons) {
             categoryButton.setSelected(button == categoryButton);
         }
@@ -143,8 +142,8 @@ public class AllNewsFragment extends BaseFragment {
             Log.e(TAG, "getAllNews: " + allNewsViewModel.newsResponse.getTotalResults());
         }, error -> {
             error.printStackTrace();
-            requireActivity().runOnUiThread( () -> {
-               showLongToastMessage(error.getMessage());
+            requireActivity().runOnUiThread(() -> {
+                showLongToastMessage(error.getMessage());
             });
             requireActivity().runOnUiThread(this::hideLoader);
         }));
@@ -179,10 +178,10 @@ public class AllNewsFragment extends BaseFragment {
         }
     }
 
-    public void hideLoader(){
+    public void hideLoader() {
         try {
             progressDialog.dismiss();
-        }catch (Exception exception){
+        } catch (Exception exception) {
             exception.printStackTrace();
         }
     }

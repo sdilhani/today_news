@@ -16,9 +16,9 @@ public class SplashScreen extends BaseActivity {
         final int SPLASH_DISPLAY_LENGTH = 3500;
 
         new Handler().postDelayed(() -> {
-                Intent mainIntent = new Intent(SplashScreen.this, MainActivity.class);
-                SplashScreen.this.startActivity(mainIntent);
-                SplashScreen.this.finish();
+            Intent mainIntent = new Intent(SplashScreen.this, MainActivity.class);
+            SplashScreen.this.startActivity(mainIntent);
+            SplashScreen.this.finish();
         }, SPLASH_DISPLAY_LENGTH);
     }
 }

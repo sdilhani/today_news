@@ -42,7 +42,7 @@ public class SourcesViewModel extends AndroidViewModel {
         });
     }
 
-    public void disposeAll(){
+    public void disposeAll() {
         compositeDisposable.dispose();
     }
 }

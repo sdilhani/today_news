@@ -17,7 +17,7 @@ public class SearchNewsRepository {
         apiInterface = ApiClient.getClient(context).create(ApiInterface.class);
     }
 
-    public Single<NewsResponse> searchNews(String query, String language){
+    public Single<NewsResponse> searchNews(String query, String language) {
         return apiInterface.getSearchResults(query, "relevancy", "100", language, ApplicationConstants.NEWS_API_KEY);
     }
 }

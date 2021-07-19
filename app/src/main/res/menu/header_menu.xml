@@ -5,6 +5,6 @@
         android:id="@+id/settings"
         android:icon="@drawable/ic_settings"
         android:orderInCategory="50"
-        app:showAsAction="always"
-        android:title="@null" />
+        android:title="@null"
+        app:showAsAction="always" />
 </menu>

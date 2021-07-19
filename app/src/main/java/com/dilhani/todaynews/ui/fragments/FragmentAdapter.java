@@ -14,13 +14,13 @@ public class FragmentAdapter extends FragmentStateAdapter {
     @NonNull
     @Override
     public Fragment createFragment(int position) {
-        switch (position){
-            case 1 :
-                return  new SearchFragment();
-            case 2 :
-                return  new SourcesFragment();
+        switch (position) {
+            case 1:
+                return new SearchFragment();
+            case 2:
+                return new SourcesFragment();
         }
-        return  new AllNewsFragment();
+        return new AllNewsFragment();
     }
 
     @Override

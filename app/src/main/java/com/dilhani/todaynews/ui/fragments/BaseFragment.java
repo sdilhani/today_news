@@ -16,7 +16,7 @@ import androidx.lifecycle.Lifecycle;
 
 public abstract class BaseFragment extends Fragment {
 
-    private  ProgressDialog progressDialog;
+    private ProgressDialog progressDialog;
 
     @NonNull
     @Override

@@ -1,20 +1,18 @@
 package com.dilhani.todaynews.ui;
 
-import com.dilhani.todaynews.ui.fragments.*;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.dilhani.todaynews.R;
 import com.dilhani.todaynews.databinding.ActivityMainBinding;
+import com.dilhani.todaynews.ui.fragments.FragmentAdapter;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.Objects;
@@ -38,13 +36,13 @@ public class MainActivity extends BaseActivity {
         return true;
     }
 
-    private void init(){
+    private void init() {
 
         setSupportActionBar(binding.toolbar);
         Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(false);
 
         FragmentManager fm = getSupportFragmentManager();
-        adapter = new FragmentAdapter(fm,getLifecycle());
+        adapter = new FragmentAdapter(fm, getLifecycle());
         binding.viewpager.setAdapter(adapter);
 
         binding.tabs.addTab(binding.tabs.newTab().setText("TOP")/*.setIcon(R.drawable.ic_all)*/);

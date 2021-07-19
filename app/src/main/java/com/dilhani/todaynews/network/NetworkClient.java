@@ -1,7 +1,7 @@
 package com.dilhani.todaynews.network;
 
 import android.content.Context;
-import java.util.Objects;
+
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.Dispatcher;

@@ -1,6 +1,7 @@
 package com.dilhani.todaynews.repository;
 
 import android.content.Context;
+
 import com.dilhani.todaynews.models.NewsResponse;
 import com.dilhani.todaynews.network.ApiClient;
 import com.dilhani.todaynews.network.ApiInterface;
@@ -18,7 +19,7 @@ public class AllNewsRepository {
         this.context = context;
     }
 
-    public Single<NewsResponse> getNewByCategory(String category, String country){
-        return apiInterface.getNewsByCategory(category, country,  ApplicationConstants.NEWS_API_KEY);
+    public Single<NewsResponse> getNewByCategory(String category, String country) {
+        return apiInterface.getNewsByCategory(category, country, ApplicationConstants.NEWS_API_KEY);
     }
 }

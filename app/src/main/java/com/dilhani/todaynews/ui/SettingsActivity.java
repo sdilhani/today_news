@@ -1,10 +1,10 @@
 package com.dilhani.todaynews.ui;
 
-import androidx.databinding.DataBindingUtil;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
+
+import androidx.databinding.DataBindingUtil;
 
 import com.dilhani.todaynews.R;
 import com.dilhani.todaynews.databinding.ActivitySettingsBinding;
@@ -31,7 +31,7 @@ public class SettingsActivity extends BaseActivity {
         init();
     }
 
-    private void init(){
+    private void init() {
 
         countries.put("ae", "United Arab Emirates");
         countries.put("ar", "Argentina");
@@ -68,8 +68,8 @@ public class SettingsActivity extends BaseActivity {
         binding.languageSpinner.setAdapter(languageAdapter);
 
         binding.button.setOnClickListener(view -> {
-            String country =  (String) countries.keySet().toArray()[binding.countrySpinner.getSelectedItemPosition()]; // [binding.countrySpinner.getSelectedItem()]
-            String language =  (String) languages.keySet().toArray()[binding.languageSpinner.getSelectedItemPosition()]; // [binding.countrySpinner.getSelectedItem()]
+            String country = (String) countries.keySet().toArray()[binding.countrySpinner.getSelectedItemPosition()]; // [binding.countrySpinner.getSelectedItem()]
+            String language = (String) languages.keySet().toArray()[binding.languageSpinner.getSelectedItemPosition()]; // [binding.countrySpinner.getSelectedItem()]
 
             getSharedPreferences().edit().putString(ApplicationConstants.COUNTRY, country).apply();
             getSharedPreferences().edit().putString(ApplicationConstants.LANGUAGE, language).apply();
@@ -88,7 +88,7 @@ public class SettingsActivity extends BaseActivity {
 
             binding.languageSpinner.setSelection(languageKeys.indexOf(language), true);
             binding.countrySpinner.setSelection(countryKeys.indexOf(country), true);
-        } catch (Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
     }

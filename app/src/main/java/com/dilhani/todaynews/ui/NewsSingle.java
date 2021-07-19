@@ -1,14 +1,13 @@
 package com.dilhani.todaynews.ui;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+
+import androidx.databinding.DataBindingUtil;
 
 import com.dilhani.todaynews.R;
 import com.dilhani.todaynews.databinding.ActivityNewsSingleBinding;
@@ -29,14 +28,14 @@ public class NewsSingle extends BaseActivity {
 
         article = (Article) getIntent().getSerializableExtra("article");
 
-        if (article == null){
+        if (article == null) {
             showToastMessage("Something went wrong!");
             finish();
         }
 
         try {
             String imagePath = article.getUrlToImage();
-            if(imagePath != null) {
+            if (imagePath != null) {
                 imagePath = imagePath.equals("") ? null : article.getUrlToImage();
             }
             Log.e(TAG, "bindTo: image " + imagePath);
@@ -59,8 +58,7 @@ public class NewsSingle extends BaseActivity {
                 i.addCategory("android.intent.category.LAUNCHER");
                 i.setData(Uri.parse(url));
                 startActivity(i);
-            }
-            catch(ActivityNotFoundException e) {
+            } catch (ActivityNotFoundException e) {
                 Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
                 startActivity(i);
             }

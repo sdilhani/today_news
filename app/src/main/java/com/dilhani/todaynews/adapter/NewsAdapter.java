@@ -63,7 +63,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsAdapterVie
 
             try {
                 String imagePath = article.getUrlToImage();
-                if(imagePath != null) {
+                if (imagePath != null) {
                     imagePath = imagePath.equals("") ? null : article.getUrlToImage();
                 }
                 Log.e(TAG, "bindTo: image " + imagePath);

@@ -31,7 +31,8 @@ public class SourcesFragment extends Fragment {
     private SourcesViewModel sourcesViewModel;
     private FragmentSourcesBinding binding;
 
-    public SourcesFragment() { }
+    public SourcesFragment() {
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -41,7 +42,7 @@ public class SourcesFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_sources,container,false);
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_sources, container, false);
         return binding.getRoot();
     }
 
@@ -59,8 +60,7 @@ public class SourcesFragment extends Fragment {
                 i.addCategory("android.intent.category.LAUNCHER");
                 i.setData(Uri.parse(url));
                 startActivity(i);
-            }
-            catch(ActivityNotFoundException e) {
+            } catch (ActivityNotFoundException e) {
                 // Chrome is not installed
                 Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
                 startActivity(i);
@@ -76,7 +76,7 @@ public class SourcesFragment extends Fragment {
         super.onStart();
     }
 
-    private void getSources(){
+    private void getSources() {
         showLoader("Loading Sources...");
         compositeDisposable.add(sourcesViewModel.getSources().subscribeOn(Schedulers.io()).subscribe(() -> {
             requireActivity().runOnUiThread(() -> {
@@ -85,8 +85,8 @@ public class SourcesFragment extends Fragment {
             });
         }, error -> {
             error.printStackTrace();
-            requireActivity().runOnUiThread( () -> {
-               // showLongToastMessage(error.getMessage());
+            requireActivity().runOnUiThread(() -> {
+                // showLongToastMessage(error.getMessage());
             });
             requireActivity().runOnUiThread(this::hideLoader);
         }));
@@ -105,10 +105,10 @@ public class SourcesFragment extends Fragment {
         }
     }
 
-    public void hideLoader(){
+    public void hideLoader() {
         try {
             progressDialog.dismiss();
-        }catch (Exception exception){
+        } catch (Exception exception) {
             exception.printStackTrace();
         }
     }

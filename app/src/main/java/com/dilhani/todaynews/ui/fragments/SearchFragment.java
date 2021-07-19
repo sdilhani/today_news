@@ -33,7 +33,8 @@ public class SearchFragment extends BaseFragment {
     private SearchNewsViewModel searchNewsViewModel;
     private String language;
 
-    public SearchFragment() { }
+    public SearchFragment() {
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,7 +44,7 @@ public class SearchFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_search,container,false);
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_search, container, false);
         return binding.getRoot();
     }
 
@@ -52,7 +53,7 @@ public class SearchFragment extends BaseFragment {
         compositeDisposable = new CompositeDisposable();
         searchNewsViewModel = new ViewModelProvider(this).get(SearchNewsViewModel.class);
 
-        language = getSharedPreferences().getString(ApplicationConstants.LANGUAGE,"en");
+        language = getSharedPreferences().getString(ApplicationConstants.LANGUAGE, "en");
 
         newsAdapter = new NewsAdapter(searchNewsViewModel.articlesList, article -> {
             Intent intent = new Intent(requireContext(), NewsSingle.class);
@@ -60,7 +61,7 @@ public class SearchFragment extends BaseFragment {
             startActivity(intent);
         });
 
-        GridLayoutManager layoutManager = new GridLayoutManager(getContext(),2);
+        GridLayoutManager layoutManager = new GridLayoutManager(getContext(), 2);
         binding.newsRecycler.setLayoutManager(layoutManager);
         binding.newsRecycler.setAdapter(newsAdapter);
 
@@ -71,26 +72,26 @@ public class SearchFragment extends BaseFragment {
         super.onStart();
     }
 
-    private void search(){
-        if(binding.query.getText().toString().equals("")){
+    private void search() {
+        if (binding.query.getText().toString().equals("")) {
             showToastMessage("Enter a search keyword");
             return;
         }
         showLoader("Loading News...");
-        language = getSharedPreferences().getString(ApplicationConstants.LANGUAGE,"en");
+        language = getSharedPreferences().getString(ApplicationConstants.LANGUAGE, "en");
         compositeDisposable.add(searchNewsViewModel.searchNews(binding.query.getText().toString(), language).subscribeOn(Schedulers.io()).subscribe(() -> {
             requireActivity().runOnUiThread(() -> {
                 newsAdapter.notifyDataSetChanged();
                 hideLoader();
 
-                if (searchNewsViewModel.articlesList.size() < 1){
+                if (searchNewsViewModel.articlesList.size() < 1) {
                     showToastMessage("No results found!");
                 }
             });
             Log.e(TAG, "getAllNews: " + searchNewsViewModel.newsResponse.getTotalResults());
         }, error -> {
             error.printStackTrace();
-            requireActivity().runOnUiThread( () -> {
+            requireActivity().runOnUiThread(() -> {
                 showLongToastMessage(error.getMessage());
             });
             requireActivity().runOnUiThread(this::hideLoader);
@@ -110,10 +111,10 @@ public class SearchFragment extends BaseFragment {
         }
     }
 
-    public void hideLoader(){
+    public void hideLoader() {
         try {
             progressDialog.dismiss();
-        }catch (Exception exception){
+        } catch (Exception exception) {
             exception.printStackTrace();
         }
     }
